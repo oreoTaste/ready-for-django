@@ -1,21 +1,27 @@
 class Car:
-    wheel = 4
-    door = 4
-    window = 4
-    seat = 4
+    def __init__(self, **kwargs):
+        self.wheel = 4
+        self.door = 4
+        self.window = 4
+        self.seat = 4
+        self.color = kwargs.get("color", "nocolor")
+        self.name = kwargs.get("name", "noname")
 
-    def check_for_start(self):
+    def __str__(self):
         try:
-            print(f"{self.color} {self.name} [ON] brrrr...")
+            return (
+                f"{self.color} {self.name} car with {self.wheel} wheels, {self.door} door, {self.window} window, {self.seat} seat \n"
+                + super().__str__()
+            )
         except AttributeError:
-            print(f"..!don't forget to input color or name")
+            return f"car with {self.wheel} wheels + " + super.__str__(self)
 
 
-hyundai = Car()
-hyundai.name = "hyundai"
-hyundai.check_for_start()
-hyundai.color = "red"
-hyundai.check_for_start()
+hyundai = Car(color="green", name="hyundai")
+print(hyundai, "\n")
+
+noname = Car()
+print(noname)
 
 
 def add(*args, **kwargs):
