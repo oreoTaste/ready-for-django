@@ -1,17 +1,21 @@
-class Car:  # class : blueprint of instance
+class Car:
     wheel = 4
     door = 4
     window = 4
     seat = 4
 
+    def check_for_start(self):
+        try:
+            print(f"{self.color} {self.name} [ON] brrrr...")
+        except AttributeError:
+            print(f"..!don't forget to input color or name")
 
-porsche = Car()  # instance : the real object of class
-porsche.name = "porsche"
+
 hyundai = Car()
 hyundai.name = "hyundai"
-
-print(porsche, porsche.door, porsche.name)
-print(hyundai, hyundai.door, hyundai.name)
+hyundai.check_for_start()
+hyundai.color = "red"
+hyundai.check_for_start()
 
 
 def add(*args, **kwargs):
